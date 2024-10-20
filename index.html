@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+let the_hidden_number = 7;                            // загаданное число
+let attempts = 3;                                     // кол-во попыток
+let new_attempts; 
+let entered_numbers;                                 // введенное число
+
+  
+guessing_the_number(the_hidden_number, entered_numbers, attempts);
+
+function guessing_the_number(a, b, c){              //угадывание числа
+
+    entered_numbers = +prompt('введите чило'); 
+
+    if(entered_numbers < the_hidden_number){
+        alert('Введенное число меньше загаданного');
+        new_attempts = c-1;
+        counting_attempts(new_attempts);
+    }
+
+    else if(entered_numbers > the_hidden_number){
+        alert('Веденное число большые загаданного');
+        new_attempts = c-1;
+        counting_attempts(new_attempts);
+    }
+    else{
+        alert('Вы угадали');
+        return;
+    }
+};   
+
+function counting_attempts(new_attempts){                             // подсчет попыток
+    if(new_attempts < 0){
+        alert('Попытки закончились');
+            return;
+    }
+    else if(new_attempts > 0){
+        alert('Количество попыток ' + new_attempts);
+        guessing_the_number(the_hidden_number, entered_numbers, new_attempts);
+        new_attempts = new_attempts - 1;
+    }
+}; 
+    </script>
+</body>
+</html>
